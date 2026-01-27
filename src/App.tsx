@@ -1,8 +1,10 @@
+import LoginPage from "./pages/auth/login"
+
 function App() {
 
   return (
     <>
-      <div className="bg-amber-400">tes</div>
+      <LoginPage/>
     </>
   )
 }
