@@ -23,21 +23,24 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Link } from "react-router-dom";
 
 const SidebarComponent = () => {
   return (
     <Sidebar>
       <SidebarHeader className="flex items-center">
         <img src="/assets/logo.png" alt="" className="w-15 h-15" />
-        <h1>Penjadwalan Rapat</h1>
+        <h1 className="font-bold">Penjadwalan Rapat</h1>
         DPRD Sulawesi Tengah
         <Separator />
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem className="mx-2">
-            <SidebarMenuButton size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+            >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
@@ -62,11 +65,11 @@ const SidebarComponent = () => {
                   >
                     <SidebarMenuItem>
                       <CollapsibleTrigger asChild>
-                        <SidebarMenuButton tooltip={item.title}>
-                          {item.icon && <item.icon />}
-                          <span>{item.title}</span>
-                          <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                        </SidebarMenuButton>
+                          <SidebarMenuButton tooltip={item.title}>
+                            {item.icon && <item.icon />}
+                            <span>{item.title}</span>
+                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                          </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
                         <SidebarMenuSub>
@@ -86,12 +89,12 @@ const SidebarComponent = () => {
                 ) : (
                   <SidebarMenuItem key={item.id}>
                     <SidebarMenuButton asChild>
-                      <a href="#">
+                      <Link to={item.path ?? "#"}>
                         {item.icon && ( //diberi kondisi, karena optional
                           <item.icon className="w-5 h-5" />
                         )}
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )}

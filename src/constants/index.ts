@@ -3,7 +3,7 @@ import { Album, AppWindow, HandCoins, Landmark } from "lucide-react";
 
 //Meetings
 export const Meetings: MeetingsType[] = [
-  { id: 1, title: "PARIPURNA", icon: Landmark },
+  { id: 1, title: "PARIPURNA", icon: Landmark, path: "/paripurna"},
   { id: 2, title: "BANGGAR (Badan Anggaran)", icon: HandCoins },
   {
     id: 3,
